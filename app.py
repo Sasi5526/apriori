@@ -25,7 +25,7 @@ def html_code_table(df,table_name,file_name,side):
     
     html_code = table_style + table_head + table_head_row
     
-    for i in range(len(prod_df.index)):
+    for i in range(len(df.index)):
         row = '<tr><td>' + str(df['Recommendation'][i]) +'</td></tr>'
         html_code = html_code + row
         
