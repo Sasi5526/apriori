@@ -1,27 +1,38 @@
-{% extends 'base.html' %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Home</title>
+	<!-- <link rel="stylesheet" type="text/css" href="../static/css/styles.css"> -->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
 
-{% block content %}
+	<header>
+		<div class="container">
+		<div id="brandname">
+			apriori
+		</div>
+		<h2>Recommendation of Next Product</h2>
+		
+	</div>
+	</header>
 
-<br>
+	<div class="ml-container">
 
-<div class="container">
-  <h2 style="font-weight: bold; color:blue">Welcome to Product Recommendation System</h2>
-</div>
+		<form action="{{ url_for('predict')}}" method="POST">
+		<p>Enter Your Category Here</p>
+		<!-- <input type="text" name="comment"/> -->
+		<textarea name="message" rows="6" cols="50"></textarea>
+		<br/>
 
-<div class="container">
+		<input type="submit" class="btn-info" value="predict">
+		
+	</form>
+		
+	</div>
 
-    <p style="font-weight: bold; color:black">Enter category</p>
+	
+	
 
-    <form action="{{url_for('login')}}">
-      <input type="text" name="name" class="form-control">
-      <input type="submit" class="btn btn-info" value="LOGIN">
-    </form>
-
-  </div>
-</div>
-
-<div class="container">
-</div>
-
-
-{% endblock %}
+</body>
+</html>
