@@ -19,9 +19,9 @@ def predict():
 
 
 	if request.method == 'POST':
-		apriori = request.form['In Cart']
+		apriori = request.form['product_name']
 		data = [apriori]
-		my_prediction = model[~model['In Cart'].str.contains(data, regex=False)].sort_values('Lift', ascending=False)[['Recommendation']].head(10)
+		my_prediction = model[~model['product_name'].str.contains(data, regex=False)].sort_values('Lift', ascending=False)[['Recommendation']].head(10)
 	return render_template('result.html',prediction = my_prediction)
 
 
