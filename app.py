@@ -33,7 +33,7 @@ def predict():
         names = []
         for i in range(len(result_final)):
             names.append(result_final.iloc[i][0])
-        return render_template('result.html',prediction=names)
+        return render_template('result.html',prediction=result_final)
 
 
 if __name__ == '__main__':
