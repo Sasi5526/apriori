@@ -26,7 +26,7 @@ def home():
 def predict():
 
 
-    if request.method == 'POST':
+    if request.method == 'post':
         m_name = request.form['product_name']
 #        check = difflib.get_close_matches(m_name,all_titles,cutout=0.50,n=1)
         result_final = get_recommendations(m_name)
