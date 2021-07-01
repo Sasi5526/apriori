@@ -22,16 +22,14 @@ def home():
 
 @app.route('/predict', methods=['POST'])
 def predict():
-
-
-    if request.method == 'POST':
-        m_name = request.form['product_name']
-#        check = difflib.get_close_matches(m_name,all_titles,cutout=0.50,n=1)
-        result_final = get_recommendations(m_name)
-        names = []
-        for i in range(len(result_final)):
-            names.append(result_final.iloc[i][0])
-    return render_template('result.html',prediction=result_final)
+	if request.method == 'POST':
+		m_name = request.form['product_name']
+		m_name = m_name.title()
+       	        result_final = get_recommendations(m_name)
+                names = []
+                for i in range(len(result_final)):
+                names.append(result_final.iloc[i][0])
+        return render_template('result.html',prediction=names)
 
 
 if __name__ == '__main__':
