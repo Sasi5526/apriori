@@ -22,11 +22,11 @@ def get_recommendations(title):
 def home():
 	return render_template('index.html')
 
-@app.route('/predict', methods=['post'])
+@app.route('/predict', methods=['POST'])
 def predict():
 
 
-    if request.method == 'post':
+    if request.method == 'POST':
         m_name = request.form['product_name']
 #        check = difflib.get_close_matches(m_name,all_titles,cutout=0.50,n=1)
         result_final = get_recommendations(m_name)
